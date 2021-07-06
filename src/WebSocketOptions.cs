@@ -26,7 +26,7 @@ namespace ByronAP.Net.WebSockets
             Logger = logger;
         }
 
-        internal ClientWebSocket InnerClientWebSocket { get; } = new();
+        public ClientWebSocket InnerClientWebSocket { get; } = new();
 
         public string Url { get; set; }
         public ILogger Logger { get; set; } = new NullLogger<WebSocketClient>();
