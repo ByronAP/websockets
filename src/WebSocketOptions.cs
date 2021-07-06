@@ -32,16 +32,83 @@ namespace ByronAP.Net.WebSockets
         public ILogger Logger { get; set; } = new NullLogger<WebSocketClient>();
         public TimeSpan ConnectTimeout { get; set; } = new(0, 0, 0, 20);
 
-        public X509CertificateCollection ClientCertificates => InnerClientWebSocket.Options.ClientCertificates;
-        public CookieContainer Cookies => InnerClientWebSocket.Options.Cookies;
-        public ICredentials Credentials => InnerClientWebSocket.Options.Credentials;
-        public TimeSpan KeepAliveInterval => InnerClientWebSocket.Options.KeepAliveInterval;
-        public IWebProxy Proxy => InnerClientWebSocket.Options.Proxy;
-
-        public RemoteCertificateValidationCallback RemoteCertificateValidationCallback =>
-            InnerClientWebSocket.Options.RemoteCertificateValidationCallback;
-
-        public bool UseDefaultCredentials => InnerClientWebSocket.Options.UseDefaultCredentials;
+        public X509CertificateCollection ClientCertificates
+        {
+            get
+            {
+                return InnerClientWebSocket.Options.ClientCertificates;
+            }
+            set
+            {
+                InnerClientWebSocket.Options.ClientCertificates = value;
+            }
+        }
+        public CookieContainer Cookies
+        {
+            get
+            {
+                return InnerClientWebSocket.Options.Cookies;
+            }
+            set
+            {
+                InnerClientWebSocket.Options.Cookies = value;
+            }
+        }
+        public ICredentials Credentials
+        {
+            get
+            {
+                return InnerClientWebSocket.Options.Credentials;
+            }
+            set
+            {
+                InnerClientWebSocket.Options.Credentials = value;
+            }
+        }
+        public TimeSpan KeepAliveInterval
+        {
+            get
+            {
+                return InnerClientWebSocket.Options.KeepAliveInterval;
+            }
+            set
+            {
+                InnerClientWebSocket.Options.KeepAliveInterval = value;
+            }
+        }
+        public IWebProxy Proxy
+        {
+            get
+            {
+                return InnerClientWebSocket.Options.Proxy;
+            }
+            set
+            {
+                InnerClientWebSocket.Options.Proxy = value;
+            }
+        }
+        public RemoteCertificateValidationCallback RemoteCertificateValidationCallback
+        {
+            get
+            {
+                return InnerClientWebSocket.Options.RemoteCertificateValidationCallback;
+            }
+            set
+            {
+                InnerClientWebSocket.Options.RemoteCertificateValidationCallback = value;
+            }
+        }
+        public bool UseDefaultCredentials
+        {
+            get
+            {
+                return InnerClientWebSocket.Options.UseDefaultCredentials;
+            }
+            set
+            {
+                InnerClientWebSocket.Options.UseDefaultCredentials = value;
+            }
+        }
 
         public void AddSubProtocol(string subProtocol)
         {
