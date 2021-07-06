@@ -5,15 +5,17 @@
     <Version>0.7.5</Version>
     <Company>ByronAP</Company>
     <Authors>ByronAP</Authors>
-    <Copyright>2021 ByronAP</Copyright>
+    <Copyright>© 2008-2021 ByronAP</Copyright>
     <Description>.NET Cross Platform WebSocket Client</Description>
+    <Summary>.NET Cross Platform WebSocket Client</Summary>
+    <Title>ByronAP WebSocket Client</Title>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/ByronAP/websockets</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ByronAP/websockets</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>.NET,WebSocket,Client,Portable</PackageTags>
     <PackageIcon>logo.png</PackageIcon>
-    <PackageIconUrl />
+    <PackageIconUrl>https://raw.githubusercontent.com/ByronAP/websockets/main/logo.png</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
