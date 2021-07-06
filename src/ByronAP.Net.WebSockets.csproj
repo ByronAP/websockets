@@ -12,6 +12,9 @@
     <RepositoryUrl>https://github.com/ByronAP/websockets</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
     <PackageTags>.NET,WebSocket,Client,Portable</PackageTags>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageIconUrl />
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -25,6 +28,10 @@
 
   <ItemGroup>
     <None Include="..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="..\logo.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
