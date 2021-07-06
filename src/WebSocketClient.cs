@@ -152,6 +152,9 @@ namespace ByronAP.Net.WebSockets
                 }
             }
 
+            // pause to allow event handling
+            await Task.Delay(200);
+
             return new Tuple<bool, Exception>(_clientWebSocket.State == WebSocketState.Open, null);
         }
 
