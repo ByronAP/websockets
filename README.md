@@ -4,7 +4,7 @@ ByronAP.Net.WebSockets is a .NET library that simplifies the usage of client web
 
 ## Installation
 
-Package available on NuGet [].
+Package available [![NuGet version (SoftCircuits.Silk)](https://img.shields.io/nuget/v/ByronAP.Net.WebSockets.svg?style=flat-square)](https://www.nuget.org/packages/ByronAP.Net.WebSockets/)
 
 ## Usage
 
