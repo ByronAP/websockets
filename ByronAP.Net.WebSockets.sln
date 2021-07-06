@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31423.177
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ByronAP.Net.WebSockets", "src\ByronAP.Net.WebSockets.csproj", "{B931A201-640E-4C1B-ACA0-C857AC68BE23}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ByronAP.Net.WebSockets", "src\ByronAP.Net.WebSockets.csproj", "{B931A201-640E-4C1B-ACA0-C857AC68BE23}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebSocketUsageDemo", "WebSocketUsageDemo\WebSocketUsageDemo.csproj", "{F272E490-0C8A-4C55-9E5E-BF8273AFAF64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B931A201-640E-4C1B-ACA0-C857AC68BE23}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B931A201-640E-4C1B-ACA0-C857AC68BE23}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B931A201-640E-4C1B-ACA0-C857AC68BE23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F272E490-0C8A-4C55-9E5E-BF8273AFAF64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F272E490-0C8A-4C55-9E5E-BF8273AFAF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F272E490-0C8A-4C55-9E5E-BF8273AFAF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F272E490-0C8A-4C55-9E5E-BF8273AFAF64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
