@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Threading.Tasks;
 
 namespace WebSocketUsageDemo
@@ -10,6 +10,9 @@ namespace WebSocketUsageDemo
 
         static async Task Main()
         {
+            Console.CursorVisible = false;
+            Console.WriteLine($"App starting.{Environment.NewLine}");
+
             // Create an instance of the WebSocketOptions class
             var options = new ByronAP.Net.WebSockets.WebSocketOptions(WebSocketHost);
             // setup options as needed
@@ -37,7 +40,10 @@ namespace WebSocketUsageDemo
             await client.SendTextAsync(TestMessage);
 
             // wait a bit before exiting the app
-            await Task.Delay(2000);
+            Console.WriteLine($"{Environment.NewLine}{Environment.NewLine}App exiting in 10 seconds.");
+            // move the cursor back up so we display our echo response in the proper area
+            Console.CursorTop = Console.CursorTop-3;
+            await Task.Delay(10000);
         }
 
         /// <summary>
