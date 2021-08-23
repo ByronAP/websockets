@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -81,7 +81,7 @@ namespace ByronAP.Net.WebSockets
         public async Task<Tuple<bool, Exception>> ConnectAsync()
         {
             _logger.LogInformation("Connect called ({InstanceId}", InstanceId);
-            
+
             // use a stopwatch to keep track of how long we are trying to connect for
             var connStartStopWatch = new Stopwatch();
             connStartStopWatch.Start();
@@ -89,8 +89,6 @@ namespace ByronAP.Net.WebSockets
             {
                 await _clientWebSocket.ConnectAsync(new Uri(_options.Url), _tokenSource.Token);
 
-                
-                
             CHECKSTATE:
                 switch (_clientWebSocket.State)
                 {
@@ -116,6 +114,7 @@ namespace ByronAP.Net.WebSockets
                             var timeoutException = new TimeoutException("WebSocket connection timed out.");
                             _logger.LogError(timeoutException, "WebSocket connect timed out ({InstanceId}).",
                                 InstanceId);
+
                             return new Tuple<bool, Exception>(_clientWebSocket.State == WebSocketState.Open,
                                 timeoutException);
                         }
@@ -263,9 +262,9 @@ namespace ByronAP.Net.WebSockets
                     {
                         var textMessage = "";
                         var binaryData = new List<byte>();
-
-                    READDATA:
-                        var receiveResult = await ReadSocketData();
+                        
+                        READDATA:
+                        var receiveResult = await ReadSocketDataAsync();
 
                         if (receiveResult.Count > 0)
                             switch (receiveResult.MessageType)
