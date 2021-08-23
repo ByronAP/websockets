@@ -372,6 +372,15 @@ namespace ByronAP.Net.WebSockets
                         _logger.LogError(ex,
                             "Exception raised while disposing of inner client websocket ({InstanceId}).", InstanceId);
                     }
+
+                    try
+                    {
+                        _tokenSource.Dispose();
+                    }
+                    catch
+                    {
+                        // ignore
+                    }
                 }
 
                 _receiveBuffer = null;
