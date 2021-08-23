@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -326,7 +326,7 @@ namespace ByronAP.Net.WebSockets
             });
         }
 
-        private ValueTask<ValueWebSocketReceiveResult> ReadSocketData()
+        private ValueTask<ValueWebSocketReceiveResult> ReadSocketDataAsync()
         {
             Array.Clear(_receiveBuffer, 0, _receiveBuffer.Length);
             return _clientWebSocket.ReceiveAsync(new Memory<byte>(_receiveBuffer), _tokenSource.Token);
@@ -349,7 +349,7 @@ namespace ByronAP.Net.WebSockets
 
                     try
                     {
-                        _receiveTask.Dispose();
+                        _receiveTask?.Dispose();
                     }
                     catch
                     {
