@@ -1,11 +1,11 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 
 namespace WebSocketUsageDemo
 {
     class Program
     {
-        const string WebSocketHost = "wss://echo.websocket.org";
+        const string WebSocketHost = "ws://websockets.chilkat.io/wsChilkatEcho.ashx";
         const string TestMessage = "Hi, this is a websocket text message.";
 
         static async Task Main()
