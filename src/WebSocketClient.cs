@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -6,15 +7,14 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
 
 namespace ByronAP.Net.WebSockets
 {
     public class WebSocketClient : IDisposable
     {
         private readonly WebSocketOptions _options;
-        private readonly SemaphoreSlim _sendSemaphoreSlim = new(1, 1);
-        private readonly CancellationTokenSource _tokenSource = new();
+        private readonly SemaphoreSlim _sendSemaphoreSlim = new SemaphoreSlim(1, 1);
+        private readonly CancellationTokenSource _tokenSource = new CancellationTokenSource();
 #pragma warning disable IDE0052 // Remove unread private members
         private readonly Timer _watchdogTimer;
 #pragma warning restore IDE0052 // Remove unread private members
@@ -161,9 +161,6 @@ namespace ByronAP.Net.WebSockets
         {
             switch (encodingType)
             {
-                case EncodingType.Latin1:
-                    await SendTextAsync(Encoding.Latin1.GetBytes(data));
-                    break;
                 case EncodingType.UTF8:
                     await SendTextAsync(Encoding.UTF8.GetBytes(data));
                     break;
@@ -262,8 +259,8 @@ namespace ByronAP.Net.WebSockets
                     {
                         var textMessage = "";
                         var binaryData = new List<byte>();
-                        
-                        READDATA:
+
+                    READDATA:
                         var receiveResult = await ReadSocketDataAsync();
 
                         if (receiveResult.Count > 0)
