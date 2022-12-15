@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
+using System;
 using System.Net;
 using System.Net.Security;
 using System.Net.WebSockets;
 using System.Security.Cryptography.X509Certificates;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 
 namespace ByronAP.Net.WebSockets
 {
@@ -26,11 +26,11 @@ namespace ByronAP.Net.WebSockets
             Logger = logger;
         }
 
-        public ClientWebSocket InnerClientWebSocket { get; } = new();
+        public ClientWebSocket InnerClientWebSocket { get; } = new ClientWebSocket();
 
         public string Url { get; set; }
         public ILogger Logger { get; set; } = new NullLogger<WebSocketClient>();
-        public TimeSpan ConnectTimeout { get; set; } = new(0, 0, 0, 20);
+        public TimeSpan ConnectTimeout { get; set; } = new TimeSpan(0, 0, 0, 20);
 
         public X509CertificateCollection ClientCertificates
         {
