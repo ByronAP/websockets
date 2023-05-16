@@ -2,9 +2,9 @@
 
 ByronAP.Net.WebSockets is a .NET library that simplifies the usage of client websockets.
 
-## Installation
-
-Package available [![NuGet version (SoftCircuits.Silk)](https://img.shields.io/nuget/v/ByronAP.Net.WebSockets.svg?style=flat-square)](https://www.nuget.org/packages/ByronAP.Net.WebSockets/)
+[![Sponsor](https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86)](https://github.com/sponsors/ByronAP)
+[![NuGet version (SoftCircuits.Silk)](https://img.shields.io/nuget/v/ByronAP.Net.WebSockets.svg?style=flat-square)](https://www.nuget.org/packages/ByronAP.Net.WebSockets/)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FByronAP%2Fwebsockets.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FByronAP%2Fwebsockets?ref=badge_shield)
 
 ## Usage
 

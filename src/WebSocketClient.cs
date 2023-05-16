@@ -189,8 +189,11 @@ namespace ByronAP.Net.WebSockets
             try
             {
                 await _sendSemaphoreSlim.WaitAsync(_tokenSource.Token);
-
+#if NETSTANDARD2_0
+                await _clientWebSocket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Text, true, _tokenSource.Token);
+#else
                 await _clientWebSocket.SendAsync(data, WebSocketMessageType.Text, true, _tokenSource.Token);
+#endif
             }
             finally
             {
@@ -204,7 +207,11 @@ namespace ByronAP.Net.WebSockets
             {
                 await _sendSemaphoreSlim.WaitAsync(_tokenSource.Token);
 
+#if NETSTANDARD2_0
+                await _clientWebSocket.SendAsync(new ArraySegment<byte>(data), WebSocketMessageType.Binary, true, _tokenSource.Token);
+#else
                 await _clientWebSocket.SendAsync(data, WebSocketMessageType.Binary, true, _tokenSource.Token);
+#endif
             }
             finally
             {
@@ -232,7 +239,11 @@ namespace ByronAP.Net.WebSockets
                     bytesRead += count;
 
                     var eof = bytesRead >= dataStream.Length;
+#if NETSTANDARD2_0
+                    await _clientWebSocket.SendAsync(new ArraySegment<byte>(buffer), WebSocketMessageType.Binary, eof, _tokenSource.Token);
+#else
                     await _clientWebSocket.SendAsync(buffer, WebSocketMessageType.Binary, eof, _tokenSource.Token);
+#endif
                     Array.Clear(buffer, 0, buffer.Length);
                 }
 
@@ -322,13 +333,19 @@ namespace ByronAP.Net.WebSockets
                 }
             });
         }
-
+#if NETSTANDARD2_0
+        private Task<WebSocketReceiveResult> ReadSocketDataAsync()
+        {
+            Array.Clear(_receiveBuffer, 0, _receiveBuffer.Length);
+            return _clientWebSocket.ReceiveAsync(new ArraySegment<byte>(_receiveBuffer), _tokenSource.Token);
+        }
+#else
         private ValueTask<ValueWebSocketReceiveResult> ReadSocketDataAsync()
         {
             Array.Clear(_receiveBuffer, 0, _receiveBuffer.Length);
             return _clientWebSocket.ReceiveAsync(new Memory<byte>(_receiveBuffer), _tokenSource.Token);
         }
-
+#endif
         protected virtual void Dispose(bool disposing)
         {
             // gives a chance to complete pending tasks
