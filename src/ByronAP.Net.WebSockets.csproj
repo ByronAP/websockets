@@ -3,21 +3,22 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
 	<LangVersion>8.0</LangVersion>
+    <Version>0.8.1.1</Version>
     <Company>ByronAP</Company>
     <Authors>ByronAP</Authors>
-    <Copyright>© 2008-2022 ByronAP</Copyright>
+    <Copyright>© 2008-2023 ByronAP</Copyright>
     <Description>.NET Cross Platform WebSocket Client</Description>
     <Summary>.NET Cross Platform WebSocket Client</Summary>
     <Title>ByronAP WebSocket Client</Title>
     <PackageProjectUrl>https://github.com/ByronAP/websockets</PackageProjectUrl>
     <RepositoryUrl>https://github.com/ByronAP/websockets</RepositoryUrl>
     <RepositoryType>GIT</RepositoryType>
-    <PackageTags>.NET,WebSocket,Client,Portable,netstandard</PackageTags>
+    <PackageTags>.NET,WebSocket,Client,Portable,netstandard,netframework</PackageTags>
     <PackageIcon>logo.png</PackageIcon>
     <PackageIconUrl>https://raw.githubusercontent.com/ByronAP/websockets/main/logo.png</PackageIconUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>0.8.0.1</AssemblyVersion>
-    <FileVersion>0.8.0.1</FileVersion>
+    <AssemblyVersion>0.8.1.1</AssemblyVersion>
+    <FileVersion>0.8.1.1</FileVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <EnableNETAnalyzers>True</EnableNETAnalyzers>
