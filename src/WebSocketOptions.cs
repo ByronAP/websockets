@@ -2,7 +2,9 @@
 using Microsoft.Extensions.Logging.Abstractions;
 using System;
 using System.Net;
+#if NETSTANDARD2_1
 using System.Net.Security;
+#endif
 using System.Net.WebSockets;
 using System.Security.Cryptography.X509Certificates;
 
@@ -34,59 +36,30 @@ namespace ByronAP.Net.WebSockets
 
         public X509CertificateCollection ClientCertificates
         {
-            get
-            {
-                return InnerClientWebSocket.Options.ClientCertificates;
-            }
-            set
-            {
-                InnerClientWebSocket.Options.ClientCertificates = value;
-            }
+            get => InnerClientWebSocket.Options.ClientCertificates;
+            set => InnerClientWebSocket.Options.ClientCertificates = value;
         }
         public CookieContainer Cookies
         {
-            get
-            {
-                return InnerClientWebSocket.Options.Cookies;
-            }
-            set
-            {
-                InnerClientWebSocket.Options.Cookies = value;
-            }
+            get => InnerClientWebSocket.Options.Cookies;
+            set => InnerClientWebSocket.Options.Cookies = value;
         }
         public ICredentials Credentials
         {
-            get
-            {
-                return InnerClientWebSocket.Options.Credentials;
-            }
-            set
-            {
-                InnerClientWebSocket.Options.Credentials = value;
-            }
+            get => InnerClientWebSocket.Options.Credentials;
+            set => InnerClientWebSocket.Options.Credentials = value;
         }
         public TimeSpan KeepAliveInterval
         {
-            get
-            {
-                return InnerClientWebSocket.Options.KeepAliveInterval;
-            }
-            set
-            {
-                InnerClientWebSocket.Options.KeepAliveInterval = value;
-            }
+            get => InnerClientWebSocket.Options.KeepAliveInterval;
+            set => InnerClientWebSocket.Options.KeepAliveInterval = value;
         }
         public IWebProxy Proxy
         {
-            get
-            {
-                return InnerClientWebSocket.Options.Proxy;
-            }
-            set
-            {
-                InnerClientWebSocket.Options.Proxy = value;
-            }
+            get => InnerClientWebSocket.Options.Proxy;
+            set => InnerClientWebSocket.Options.Proxy = value;
         }
+#if NETSTANDARD2_1
         public RemoteCertificateValidationCallback RemoteCertificateValidationCallback
         {
             get
@@ -98,16 +71,11 @@ namespace ByronAP.Net.WebSockets
                 InnerClientWebSocket.Options.RemoteCertificateValidationCallback = value;
             }
         }
+#endif
         public bool UseDefaultCredentials
         {
-            get
-            {
-                return InnerClientWebSocket.Options.UseDefaultCredentials;
-            }
-            set
-            {
-                InnerClientWebSocket.Options.UseDefaultCredentials = value;
-            }
+            get => InnerClientWebSocket.Options.UseDefaultCredentials;
+            set => InnerClientWebSocket.Options.UseDefaultCredentials = value;
         }
 
         public void AddSubProtocol(string subProtocol)
